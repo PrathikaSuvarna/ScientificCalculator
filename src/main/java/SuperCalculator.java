@@ -58,7 +58,7 @@ public class SuperCalculator extends JFrame {
     /** buttonNine. */
     private JButton buttonNine;
     /** button for subtraction. */
-    private JButton buttonTangent;
+    private JButton buttonSigma;
     /** button for multiply. */
     private JButton buttonGamma;
     /** button for division. */
@@ -212,8 +212,8 @@ public class SuperCalculator extends JFrame {
         buttonNine.setBounds(153, 141, 56, 35);
         getContentPane().add(buttonNine);
 
-        buttonTangent = new JButton("Tan");
-        buttonTangent.addActionListener(
+        buttonSigma = new JButton("Sigma");
+        buttonSigma.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
 
@@ -236,92 +236,9 @@ public class SuperCalculator extends JFrame {
                         }
                     }
                 });
-        buttonTangent.setFont(new Font("Tahoma", Font.BOLD, 15));
-        buttonTangent.setBounds(395, 141, 106, 35);
-        getContentPane().add(buttonTangent);
-
-        buttonGamma = new JButton("SinH");
-        buttonGamma.addActionListener(
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        // clear error message
-                        textError.setVisible(false);
-
-                        // get focus
-                        textFieldInput.requestFocus();
-                        String str = textFieldInput.getText();
-
-                        // Check whether it is empty, else if Check if it is a number,else not a number
-                        if (str.contains(" ") || str.equals("")) {
-                            textError.setText(VALIDATION_MESSAGE);
-                            textError.setVisible(true);
-                        } else {
-                            try {
-                                calculation = 2;
-                                arithmeticOperation(textFieldInput.getText());
-                                input = Double.parseDouble(textFieldInput.getText());
-                                label.setText(" SinHÃ‚â€œ(" + input + ")");
-                            } catch (NumberFormatException ex) {
-                                textError.setText("please input a real number");
-                                textError.setVisible(true);
-                            }
-                        }
-                    }
-                });
-        buttonGamma.setFont(new Font("Tahoma", Font.BOLD, 15));
-        buttonGamma.setBounds(229, 141, 155, 35);
-        getContentPane().add(buttonGamma);
-
-        buttonExponent = new JButton("Exponent-ab^y");
-        buttonExponent.addActionListener(
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        // If the input is a number
-                        if (numericInputCheck(textFieldInput.getText())) {
-                            calculation = 3;
-                            if (expCounter == 0) {
-                                input = Double.parseDouble(textFieldInput.getText());
-                                expCounter += 1;
-
-                                textFieldInput.setText("");
-                                label.setText(input + "*");
-                            } else if (expCounter == 1) {
-                                input2 = Double.parseDouble(textFieldInput.getText());
-                                expCounter += 1;
-                                String labelText = label.getText() + input2 + "^";
-                                textFieldInput.setText("");
-                                label.setText(labelText);
-                            }
-                        } else {
-                            textError.setText(VALIDATION_MESSAGE);
-                            textError.setVisible(true);
-                        }
-                    }
-                });
-        buttonExponent.setFont(new Font("Tahoma", Font.BOLD, 15));
-        buttonExponent.setBounds(229, 189, 155, 35);
-        getContentPane().add(buttonExponent);
-
-        buttonPower = new JButton("Power-^");
-        buttonPower.addActionListener(
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        // If the input is a number
-                        if (numericInputCheck(textFieldInput.getText())) {
-                            input = Double.parseDouble(textFieldInput.getText());
-                            calculation = 4;
-                            textFieldInput.setText("");
-                            label.setText(input + "^");
-                        } else {
-                            textError.setText(VALIDATION_MESSAGE);
-                            textError.setVisible(true);
-                        }
-                    }
-                });
-        buttonPower.setFont(new Font("Tahoma", Font.BOLD, 15));
-        buttonPower.setBounds(395, 189, 106, 35);
-        getContentPane().add(buttonPower);
+        buttonSigma.setFont(new Font("Tahoma", Font.BOLD, 15));
+        buttonSigma.setBounds(395, 141, 106, 35);
+        getContentPane().add(buttonSigma);
 
         buttonEqual = new JButton("=");
         buttonEqual.addActionListener(

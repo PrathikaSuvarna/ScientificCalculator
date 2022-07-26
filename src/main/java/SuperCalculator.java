@@ -228,7 +228,7 @@ public class SuperCalculator extends JFrame {
                         if (numericInputCheck(str)) {
                             input = Double.parseDouble(textFieldInput.getText());
                             calculation = 1;
-                            label.setText(" TanÃ‚â€œ(" + input + ")");
+                            label.setText(" Standard Deviation(" + input + ")");
                             arithmeticOperation(textFieldInput.getText());
                         } else {
                             textError.setText(VALIDATION_MESSAGE);
@@ -372,7 +372,8 @@ public class SuperCalculator extends JFrame {
     public void arithmeticOperation(String str) {
         switch (calculation) {
             case 1: // Tangent
-
+                String outputwer = StandardDevi.calculateSD(Double.parseDouble(str));
+                textFieldInput.setText(outputwer);
                 break;
 
             case 2: // SinH

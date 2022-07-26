@@ -54,4 +54,8 @@ public class StandardDevi {
         System.out.println(res);
         sc.close();
     }
+
+    public static String calculateSD(double parseDouble) {
+        return null;
+    }
 }

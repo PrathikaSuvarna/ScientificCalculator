@@ -1,3 +1,5 @@
+
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -6,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,7 +23,7 @@ public class SuperCalculator extends JFrame {
     private static final long serialVersionUID = 1L;
 
     /** The Constant VALIDATION_MESSAGE. */
-    private static final String VALIDATION_MESSAGE = "Please enter a valid real number";
+    private static final String VALIDATION_MESSAGE = "Please enter atleast two numbers separated by space";
     /** The text field input. */
     private static JTextField textFieldInput;
     /** variable used in arithmeticOperation method. */
@@ -55,18 +58,14 @@ public class SuperCalculator extends JFrame {
     private JButton buttonEight;
     /** buttonNine. */
     private JButton buttonNine;
-    /** button for subtraction. */
+    /** button for sigma */
     private JButton buttonSigma;
-    /** button for multiply. */
-    private JButton buttonGamma;
-    /** button for division. */
-    private JButton buttonExponent;
-    /** button for division. */
-    private JButton buttonPower;
     /** button for the dot sign. */
     private JButton buttonDot;
     /** button for the equal sign. */
-    private JButton buttonEqual;
+    private JButton buttonspace;
+
+    private JButton buttonminus;
     /** button for the back sign. */
     private JButton btnBack;
     /** label for arithmetic use. */
@@ -210,65 +209,45 @@ public class SuperCalculator extends JFrame {
         buttonNine.setBounds(153, 141, 56, 35);
         getContentPane().add(buttonNine);
 
-        buttonSigma = new JButton("Sigma");
+        buttonSigma = new JButton("Sigma(σ)");
         buttonSigma.addActionListener(
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
+        new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 
-                        // clear error message
-                        textError.setVisible(false);
+                // clear error message
+                textError.setVisible(false);
 
-                        // get focus
-                        textFieldInput.requestFocus();
-                        String str = textFieldInput.getText();
+                // get focus
+                textFieldInput.requestFocus();
+                String str = textFieldInput.getText();
+                arithmeticOperation(str);
+                // Check whether it is empty, else if Check if it is a number,else not a number
+               /*if (numericInputCheck(str)) {
+                    input = Double.parseDouble(textFieldInput.getText());
+                    calculation = 1;
+                    label.setText("Standard Deviation.." + input + ")");
 
-                        // Check whether it is empty, else if Check if it is a number,else not a number
-                        if (numericInputCheck(str)) {
-                            input = Double.parseDouble(textFieldInput.getText());
-                            calculation = 1;
-                            label.setText(" Standard Deviation(" + input + ")");
-                            arithmeticOperation(textFieldInput.getText());
-                        } else {
-                            textError.setText(VALIDATION_MESSAGE);
-                            textError.setVisible(true);
-                        }
-                    }
-                });
+                } else {
+                    textError.setText(VALIDATION_MESSAGE);
+                    textError.setVisible(true);
+                }*/
+            }
+        });
         buttonSigma.setFont(new Font("Tahoma", Font.BOLD, 15));
-        buttonSigma.setBounds(395, 141, 106, 35);
+        buttonSigma.setBounds(229, 189, 155, 35);
         getContentPane().add(buttonSigma);
 
-        buttonEqual = new JButton("=");
-        buttonEqual.addActionListener(
+
+
+        buttonspace = new JButton(" ");
+        buttonspace.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        textError.setText("");
-                        // if the textfield value is a real number
-                        if (numericInputCheck(textFieldInput.getText())) {
-                            if (calculation == 3) {
-                                if (expCounter == 2) {
-                                    expCounter = 0;
-                                    String str = textFieldInput.getText();
-                                    textFieldInput.setText("");
-                                    arithmeticOperation(str);
-                                    label.setText("");
-                                } else {
-
-                                }
-                            } else {
-                                String str = textFieldInput.getText();
-                                textFieldInput.setText("");
-                                arithmeticOperation(str);
-                                label.setText("");
-                            }
-                        } else {
-                            textError.setText("please enter a value >= 0");
-                            textError.setVisible(true);
-                        }
+                        textFieldInput.setText(textFieldInput.getText() + " ");
                     }
                 });
-        buttonEqual.setBounds(153, 290, 204, 35);
-        getContentPane().add(buttonEqual);
+        buttonspace.setBounds(153, 290, 204, 35);
+        getContentPane().add(buttonspace);
 
         JButton btnClear = new JButton("Clear");
         // Add action to the clear button
@@ -368,28 +347,13 @@ public class SuperCalculator extends JFrame {
      * @param str the str
      */
     public void arithmeticOperation(String str) {
-        switch (calculation) {
-            case 1: // Tangent
-               // String outputwer = StandardDevi.calculateSD(Double.parseDouble(str));
-                //textFieldInput.setText(outputwer);
-                break;
+        DecimalFormat df = new DecimalFormat("#.#####");
+        String[] tokens = str.split(" ");
+        double[] arr = new double[tokens.length];
+        for (int i=0; i<arr.length;i++)
+            arr[i] = Integer.parseInt(tokens[i]);
 
-            case 2: // SinH
-
-                break;
-
-            case 3: // Exponent
-
-                break;
-
-            case 4: // Power
-
-                break;
-
-            default:
-                textError.setText("Incorrect Choice");
-                textError.setVisible(true);
-                break;
-        }
+        double res = StandardDevi.calculateSD(arr);
+        textFieldInput.setText(df.format(res));
     }
 }

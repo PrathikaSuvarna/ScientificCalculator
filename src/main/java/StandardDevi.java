@@ -57,7 +57,7 @@ public class StandardDevi {
      *
      * @param args the arguments
      */
-
+/*
     public static void main(String[] args) {
         DecimalFormat df = new DecimalFormat("#.#####");
         try {
@@ -83,5 +83,5 @@ public class StandardDevi {
 
 
 
-    }
+    }*/
 }

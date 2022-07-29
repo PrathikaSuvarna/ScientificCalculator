@@ -372,8 +372,8 @@ public class SuperCalculator extends JFrame {
     public void arithmeticOperation(String str) {
         switch (calculation) {
             case 1: // Tangent
-                String outputwer = StandardDevi.calculateSD(Double.parseDouble(str));
-                textFieldInput.setText(outputwer);
+               // String outputwer = StandardDevi.calculateSD(Double.parseDouble(str));
+                //textFieldInput.setText(outputwer);
                 break;
 
             case 2: // SinH

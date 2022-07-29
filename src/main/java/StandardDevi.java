@@ -8,14 +8,6 @@ import java.util.Scanner;
  */
 public class StandardDevi {
 
-/*
-        public static void main(String[] args) {
-            double[] numArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            double SD = calculateSD(numArray);
-
-            System.out.format("Standard Deviation = %.6f", SD);
-        }*/
-
         public static double calculateSD(double numArray[])
         {
             double sum = 0.0, standardDeviation = 0.0;
@@ -48,6 +40,7 @@ public class StandardDevi {
         }
         return power;
     }
+
     public static double squareRoot(double input) {
         double error = 0.00001;
         double errorPrecision = 1;
@@ -66,21 +59,20 @@ public class StandardDevi {
      */
 
     public static void main(String[] args) {
-        DecimalFormat df = new DecimalFormat("#.####");
+        DecimalFormat df = new DecimalFormat("#.#####");
         try {
-            int n =0;
             Scanner input = new Scanner(System.in);
-            n = input.nextInt();
-            double arr[] = new double[n];
             System.out.println("** ETERNITY: FUNCTIONS - (σ) **");
             System.out.println("");
-            System.out.println("Please enter the value of array: ");
+            System.out.println("Please enter atleast two values for the array: ");
+            String line = input.nextLine();
+            String[] tokens = line.split(" ");
+            double[] arr = new double[tokens.length];
+            for (int i=0; i<arr.length;i++)
+                arr[i] = Integer.parseInt(tokens[i]);
 
-            for (int i= 0; i<n; i++) {
-                arr[i] = input.nextDouble();
-            }
             double res = calculateSD(arr);
-            System.out.println(res);
+            System.out.println(df.format(res));
             input.close();
         }
 

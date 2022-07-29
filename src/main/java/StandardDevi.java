@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Scanner;
 
+/**
+ * class for Standard deviation function
+ */
 public class StandardDevi {
 
 /*

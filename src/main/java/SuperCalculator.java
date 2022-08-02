@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.math.BigDecimal;
+import java.io.Serial;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,22 +18,13 @@ import javax.swing.SwingConstants;
 public class SuperCalculator extends JFrame {
 
     /** The Constant serialVersionUID. */
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /** The Constant VALIDATION_MESSAGE. */
     private static final String VALIDATION_MESSAGE = "Please enter at least two numbers separated by space";
     /** The text field input. */
     private static JTextField textFieldInput;
-    /** variable used in arithmeticOperation method. */
-    double input;
-    /** variable used in arithmeticOperation method. */
-    double input2;
-    /** variable used in arithmeticOperation method. */
-    int expCounter = 0;
-    /** variable used in arithmeticOperation method. */
-    double output;
-    /** condition variables used in arithmeticOperation method. */
-    int calculation;
     /** The text error. */
     private JTextField textError;
     /** The button zero. */
@@ -207,19 +198,19 @@ public class SuperCalculator extends JFrame {
         buttonNine.setBounds(153, 141, 56, 35);
         getContentPane().add(buttonNine);
 
-        buttonNine = new JButton("-");
-        buttonNine.addActionListener(
+        buttonminus = new JButton("-");
+        buttonminus.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         textFieldInput.setText(textFieldInput.getText() + "-");
                     }
                 });
-        buttonNine.setFont(new Font("Tahoma", Font.BOLD, 20));
-        buttonNine.setBounds(153, 290, 56, 35);
-        getContentPane().add(buttonNine);
+        buttonminus.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonminus.setBounds(153, 290, 56, 35);
+        getContentPane().add(buttonminus);
 
 
-        buttonSigma = new JButton("Sigma(σ)");
+        buttonSigma = new JButton("SD (σ)");
         buttonSigma.addActionListener(
         new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -230,22 +221,14 @@ public class SuperCalculator extends JFrame {
                 // get focus
                 textFieldInput.requestFocus();
                 String str = textFieldInput.getText();
-                if(!str.isEmpty())
+                if(!str.isEmpty() && str.contains(" ")) {
+                    label.setText("Standard Deviation..");
                     arithmeticOperation(str);
+                }
                 else{
                     textError.setText(VALIDATION_MESSAGE);
                     textError.setVisible(true);
                 }
-                // Check whether it is empty, else if Check if it is a number,else not a number
-               /*if (numericInputCheck(str)) {
-                    input = Double.parseDouble(textFieldInput.getText());
-                    calculation = 1;
-                    label.setText("Standard Deviation.." + input + ")");
-
-                } else {
-                    textError.setText(VALIDATION_MESSAGE);
-                    textError.setVisible(true);
-                }*/
             }
         });
         buttonSigma.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -339,21 +322,6 @@ public class SuperCalculator extends JFrame {
                         }
                     }
                 });
-    }
-
-    /**
-     * Checks if input is a Number.
-     *
-     * @param inputDataString the inputDataString
-     * @return true, if the input is a real number
-     */
-    public static boolean numericInputCheck(String inputDataString) {
-        try {
-            new BigDecimal(inputDataString).toString();
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
     }
 
     /**

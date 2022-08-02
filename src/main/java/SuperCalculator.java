@@ -1,5 +1,3 @@
-
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -23,7 +21,7 @@ public class SuperCalculator extends JFrame {
     private static final long serialVersionUID = 1L;
 
     /** The Constant VALIDATION_MESSAGE. */
-    private static final String VALIDATION_MESSAGE = "Please enter atleast two numbers separated by space";
+    private static final String VALIDATION_MESSAGE = "Please enter at least two numbers separated by space";
     /** The text field input. */
     private static JTextField textFieldInput;
     /** variable used in arithmeticOperation method. */
@@ -96,7 +94,7 @@ public class SuperCalculator extends JFrame {
                     }
                 });
         buttonDot.setFont(new Font("Tahoma", Font.BOLD, 20));
-        buttonDot.setBounds(87, 290, 56, 35);
+        buttonDot.setBounds(21, 290, 56, 35);
         getContentPane().add(buttonDot);
 
         buttonZero = new JButton("0");
@@ -107,7 +105,7 @@ public class SuperCalculator extends JFrame {
                     }
                 });
         buttonZero.setFont(new Font("Tahoma", Font.BOLD, 20));
-        buttonZero.setBounds(21, 290, 56, 35);
+        buttonZero.setBounds(87, 290, 56, 35);
         getContentPane().add(buttonZero);
 
         buttonOne = new JButton("1");
@@ -209,6 +207,18 @@ public class SuperCalculator extends JFrame {
         buttonNine.setBounds(153, 141, 56, 35);
         getContentPane().add(buttonNine);
 
+        buttonNine = new JButton("-");
+        buttonNine.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        textFieldInput.setText(textFieldInput.getText() + "-");
+                    }
+                });
+        buttonNine.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonNine.setBounds(153, 290, 56, 35);
+        getContentPane().add(buttonNine);
+
+
         buttonSigma = new JButton("Sigma(σ)");
         buttonSigma.addActionListener(
         new ActionListener() {
@@ -220,7 +230,12 @@ public class SuperCalculator extends JFrame {
                 // get focus
                 textFieldInput.requestFocus();
                 String str = textFieldInput.getText();
-                arithmeticOperation(str);
+                if(!str.isEmpty())
+                    arithmeticOperation(str);
+                else{
+                    textError.setText(VALIDATION_MESSAGE);
+                    textError.setVisible(true);
+                }
                 // Check whether it is empty, else if Check if it is a number,else not a number
                /*if (numericInputCheck(str)) {
                     input = Double.parseDouble(textFieldInput.getText());
@@ -234,7 +249,7 @@ public class SuperCalculator extends JFrame {
             }
         });
         buttonSigma.setFont(new Font("Tahoma", Font.BOLD, 15));
-        buttonSigma.setBounds(229, 189, 155, 35);
+        buttonSigma.setBounds(240, 155, 160, 45);
         getContentPane().add(buttonSigma);
 
 
@@ -246,7 +261,7 @@ public class SuperCalculator extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + " ");
                     }
                 });
-        buttonspace.setBounds(153, 290, 204, 35);
+        buttonspace.setBounds(240, 215, 160, 45);
         getContentPane().add(buttonspace);
 
         JButton btnClear = new JButton("Clear");
@@ -262,7 +277,7 @@ public class SuperCalculator extends JFrame {
                     }
                 });
         btnClear.setFont(new Font("Tahoma", Font.BOLD, 13));
-        btnClear.setBounds(21, 82, 72, 45);
+        btnClear.setBounds(28, 82, 80, 45);
         getContentPane().add(btnClear);
 
         btnBack = new JButton("Back");
@@ -279,7 +294,7 @@ public class SuperCalculator extends JFrame {
                     }
                 });
         btnBack.setFont(new Font("Tahoma", Font.BOLD, 13));
-        btnBack.setBounds(103, 82, 72, 45);
+        btnBack.setBounds(120, 82, 80, 45);
         getContentPane().add(btnBack);
 
         textError = new JTextField();

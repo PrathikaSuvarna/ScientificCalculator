@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.Serial;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,7 +23,7 @@ public class SuperCalculator extends JFrame {
     private static final long serialVersionUID = 1L;
 
     /** The Constant VALIDATION_MESSAGE. */
-    private static final String VALIDATION_MESSAGE = "Please enter at least two numbers separated by space";
+    private static final String VALIDATION_MESSAGE = "Please enter real numbers separated by space";
     /** The text field input. */
     private static JTextField textFieldInput;
     /** The text error. */
@@ -214,18 +215,34 @@ public class SuperCalculator extends JFrame {
         buttonSigma.addActionListener(
         new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                int flag=0;
                 // clear error message
                 textError.setVisible(false);
 
                 // get focus
                 textFieldInput.requestFocus();
                 String str = textFieldInput.getText();
-                if(!str.isEmpty() && str.contains(" ")) {
-                    label.setText("Standard Deviation..");
-                    arithmeticOperation(str);
+                if(!str.isEmpty()) {
+                    String[] tokenss = str.split(" ");
+                    for(int i=0;i<tokenss.length;i++){
+
+                        if(!numericInputCheck(tokenss[i])){
+                            flag=1;
+                        }
+                    }
+                    if(flag==1){
+                        textError.setForeground(Color.red);
+                        textError.setText(VALIDATION_MESSAGE);
+                        textError.setVisible(true);
+                    }else if(flag==0)
+                    {
+                        label.setForeground(Color.green);
+                        label.setText("Standard Deviation");
+                        arithmeticOperation(str);
+                    }
                 }
                 else{
+                    textError.setForeground(Color.red);
                     textError.setText(VALIDATION_MESSAGE);
                     textError.setVisible(true);
                 }
@@ -285,7 +302,6 @@ public class SuperCalculator extends JFrame {
         textError.setBorder(null);
         textError.setFont(new Font("Tahoma", Font.PLAIN, 18));
         textError.setEditable(false);
-        textError.setText("Negative integer is not acceptable, try other numbers");
         textError.setBounds(21, 335, 515, 34);
         getContentPane().add(textError);
         textError.setColumns(10);
@@ -323,7 +339,20 @@ public class SuperCalculator extends JFrame {
                     }
                 });
     }
-
+    /**
+     * Checks if input is a Number.
+     *
+     * @param inputDataString the inputDataString
+     * @return true, if the input is a real number
+     */
+    public static boolean numericInputCheck(String inputDataString) {
+        try {
+            new BigDecimal(inputDataString).toString();
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
     /**
      * Arithmetic operation.
      *
@@ -333,10 +362,17 @@ public class SuperCalculator extends JFrame {
         DecimalFormat df = new DecimalFormat("#.#####");
         String[] tokens = str.split(" ");
         double[] arr = new double[tokens.length];
-        for (int i=0; i<arr.length;i++)
+        for (int i=0; i<arr.length;i++) {
             arr[i] = Integer.parseInt(tokens[i]);
+        }
 
-        double res = StandardDevi.calculateSD(arr);
-        textFieldInput.setText(df.format(res));
+        double res = StandardDeviation.calculateSD(arr);
+        String r = String.valueOf(res);
+        if(r== "NaN"){
+            textFieldInput.setText(df.format(0));
+        }else{
+            textFieldInput.setText(df.format(res));
+        }
+
     }
 }

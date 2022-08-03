@@ -16,7 +16,7 @@ import javax.swing.SwingConstants;
 
 // TODO: Auto-generated Javadoc
 /** The Class SuperCalculator. */
-public class SuperCalculator extends JFrame {
+public class Eternity extends JFrame {
 
     /** The Constant serialVersionUID. */
     @Serial
@@ -62,7 +62,7 @@ public class SuperCalculator extends JFrame {
     private JLabel label;
 
     /** Instantiates a new super calculator. */
-    public SuperCalculator() {
+    public Eternity() {
         setResizable(false);
         setFont(new Font("Dialog", Font.BOLD, 14));
         setTitle("Super Calculator");
@@ -324,7 +324,7 @@ public class SuperCalculator extends JFrame {
                 new Runnable() {
                     public void run() {
                         try {
-                            SuperCalculator frame = new SuperCalculator();
+                            Eternity frame = new Eternity();
                             // textField get focus
                             frame.addWindowFocusListener(
                                     new WindowAdapter() {

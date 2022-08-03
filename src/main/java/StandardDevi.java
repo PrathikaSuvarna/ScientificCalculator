@@ -1,8 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
-import java.text.DecimalFormat;
-import java.util.Scanner;
-
 /**
  * class for Standard deviation function
  */
@@ -52,36 +47,4 @@ public class StandardDevi {
         }
         return input;
     }
-    /**
-     * The main method.
-     *
-     * @param args the arguments
-     */
-/*
-    public static void main(String[] args) {
-        DecimalFormat df = new DecimalFormat("#.#####");
-        try {
-            Scanner input = new Scanner(System.in);
-            System.out.println("** ETERNITY: FUNCTIONS - (σ) **");
-            System.out.println("");
-            System.out.println("Please enter atleast two values for the array: ");
-            String line = input.nextLine();
-            String[] tokens = line.split(" ");
-            double[] arr = new double[tokens.length];
-            for (int i=0; i<arr.length;i++)
-                arr[i] = Integer.parseInt(tokens[i]);
-
-            double res = calculateSD(arr);
-            System.out.println(df.format(res));
-            input.close();
-        }
-
-        catch (Exception e) {
-            System.out.println("Exception occurred");
-
-        }
-
-
-
-    }*/
 }

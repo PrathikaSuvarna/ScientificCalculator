@@ -1,7 +1,7 @@
 /**
  * class for Standard deviation function
  */
-public class StandardDevi {
+public class StandardDeviation {
 
         public static double calculateSD(double numArray[])
         {
@@ -45,6 +45,8 @@ public class StandardDevi {
             input = (input + duplicate / input) / 2;
             errorPrecision = input - duplicate / input;
         }
-        return input;
+
+            return input;
+
     }
 }

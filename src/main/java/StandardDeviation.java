@@ -17,8 +17,13 @@ public class StandardDeviation {
             for(double num: numArray) {
                 standardDeviation += power(num - mean, 2);
             }
-
-            return squareRoot(standardDeviation/length);
+            double res = squareRoot(standardDeviation/length);
+            String r = String.valueOf(res);
+            if(r== "NaN")
+            {
+                res =0;
+            }
+            return res;
         }
 
 
@@ -37,7 +42,7 @@ public class StandardDeviation {
     }
 
     public static double squareRoot(double input) {
-        double error = 0.00001;
+        double error = 0.0000001;
         double errorPrecision = 1;
         double duplicate = input;
 

@@ -359,11 +359,11 @@ public class Eternity extends JFrame {
      * @param str the str
      */
     public void arithmeticOperation(String str) {
-        DecimalFormat df = new DecimalFormat("#.#####");
+        DecimalFormat df = new DecimalFormat("#.#############");
         String[] tokens = str.split(" ");
         double[] arr = new double[tokens.length];
         for (int i=0; i<arr.length;i++) {
-            arr[i] = Integer.parseInt(tokens[i]);
+            arr[i] = Double.parseDouble(tokens[i]);
         }
 
         double res = StandardDeviation.calculateSD(arr);

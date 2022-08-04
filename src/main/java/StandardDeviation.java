@@ -42,7 +42,7 @@ public class StandardDeviation {
     }
 
     public static double squareRoot(double input) {
-        double error = 0.0000001;
+        double error = 0.0000000001;
         double errorPrecision = 1;
         double duplicate = input;
 

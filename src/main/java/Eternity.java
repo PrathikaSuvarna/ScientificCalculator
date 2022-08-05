@@ -8,13 +8,12 @@ import java.awt.event.WindowEvent;
 import java.io.Serial;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 
-// TODO: Auto-generated Javadoc
+
 /** The Class SuperCalculator. */
 public class Eternity extends JFrame {
 
@@ -52,9 +51,9 @@ public class Eternity extends JFrame {
     private JButton buttonSigma;
     /** button for the dot sign. */
     private JButton buttonDot;
-    /** button for the equal sign. */
+    /** button for the space sign. */
     private JButton buttonspace;
-
+    /** button for the minus sign. */
     private JButton buttonminus;
     /** button for the back sign. */
     private JButton btnBack;
@@ -64,17 +63,20 @@ public class Eternity extends JFrame {
     /** Instantiates a new super calculator. */
     public Eternity() {
         setResizable(false);
-        setFont(new Font("Dialog", Font.BOLD, 14));
-        setTitle("Super Calculator");
+        setFont(new Font("Serif", Font.BOLD, 14));
+        setTitle("Standard Deviation");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(300, 300, 515, 415);
         getContentPane().setLayout(null);
 
         textFieldInput = new JTextField();
         textFieldInput.setHorizontalAlignment(SwingConstants.RIGHT);
-        textFieldInput.setFont(new Font("Tahoma", Font.BOLD, 20));
+        textFieldInput.setFont(new Font("SansSerif", Font.BOLD, 20));
         textFieldInput.setBounds(21, 35, 472, 35);
-        textFieldInput.setBorder(null);
+        Border line = BorderFactory.createLineBorder(new Color(80, 80, 80));
+        Border empty = new EmptyBorder(4, 4, 4, 4);
+        CompoundBorder border = new CompoundBorder(line, empty);
+        textFieldInput.setBorder(border);
         getContentPane().add(textFieldInput);
         textFieldInput.setColumns(10);
 
@@ -85,7 +87,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + ".");
                     }
                 });
-        buttonDot.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonDot.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonDot.setBorder(border);
         buttonDot.setBounds(21, 290, 56, 35);
         getContentPane().add(buttonDot);
 
@@ -96,7 +99,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "0");
                     }
                 });
-        buttonZero.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonZero.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonZero.setBorder(border);
         buttonZero.setBounds(87, 290, 56, 35);
         getContentPane().add(buttonZero);
 
@@ -107,7 +111,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "1");
                     }
                 });
-        buttonOne.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonOne.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonOne.setBorder(border);
         buttonOne.setBounds(21, 235, 56, 35);
         getContentPane().add(buttonOne);
 
@@ -118,7 +123,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "2");
                     }
                 });
-        buttonTwo.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonTwo.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonTwo.setBorder(border);
         buttonTwo.setBounds(87, 235, 56, 35);
         getContentPane().add(buttonTwo);
 
@@ -129,7 +135,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "3");
                     }
                 });
-        buttonThree.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonThree.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonThree.setBorder(border);
         buttonThree.setBounds(153, 235, 56, 35);
         getContentPane().add(buttonThree);
 
@@ -140,7 +147,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "4");
                     }
                 });
-        buttonFour.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonFour.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonFour.setBorder(border);
         buttonFour.setBounds(21, 187, 56, 35);
         getContentPane().add(buttonFour);
 
@@ -151,7 +159,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "5");
                     }
                 });
-        buttonFive.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonFive.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonFive.setBorder(border);
         buttonFive.setBounds(87, 187, 56, 35);
         getContentPane().add(buttonFive);
 
@@ -162,7 +171,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "6");
                     }
                 });
-        buttonSix.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonSix.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonSix.setBorder(border);
         buttonSix.setBounds(153, 187, 56, 35);
         getContentPane().add(buttonSix);
 
@@ -173,7 +183,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "7");
                     }
                 });
-        buttonSeven.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonSeven.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonSeven.setBorder(border);
         buttonSeven.setBounds(21, 141, 56, 35);
         getContentPane().add(buttonSeven);
 
@@ -184,7 +195,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "8");
                     }
                 });
-        buttonEight.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonEight.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonEight.setBorder(border);
         buttonEight.setBounds(87, 141, 56, 35);
         getContentPane().add(buttonEight);
 
@@ -195,7 +207,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "9");
                     }
                 });
-        buttonNine.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonNine.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonNine.setBorder(border);
         buttonNine.setBounds(153, 141, 56, 35);
         getContentPane().add(buttonNine);
 
@@ -206,7 +219,8 @@ public class Eternity extends JFrame {
                         textFieldInput.setText(textFieldInput.getText() + "-");
                     }
                 });
-        buttonminus.setFont(new Font("Tahoma", Font.BOLD, 20));
+        buttonminus.setFont(new Font("SansSerif", Font.BOLD, 20));
+        buttonminus.setBorder(border);
         buttonminus.setBounds(153, 290, 56, 35);
         getContentPane().add(buttonminus);
 
@@ -248,7 +262,8 @@ public class Eternity extends JFrame {
                 }
             }
         });
-        buttonSigma.setFont(new Font("Tahoma", Font.BOLD, 15));
+        buttonSigma.setFont(new Font("SansSerif", Font.BOLD, 15));
+        buttonSigma.setBorder(border);
         buttonSigma.setBounds(240, 155, 160, 45);
         getContentPane().add(buttonSigma);
 
@@ -262,6 +277,7 @@ public class Eternity extends JFrame {
                     }
                 });
         buttonspace.setBounds(240, 215, 160, 45);
+        buttonspace.setBorder(border);
         getContentPane().add(buttonspace);
 
         JButton btnClear = new JButton("Clear");
@@ -276,7 +292,8 @@ public class Eternity extends JFrame {
                         textError.setVisible(false);
                     }
                 });
-        btnClear.setFont(new Font("Tahoma", Font.BOLD, 13));
+        btnClear.setFont(new Font("SansSerif", Font.BOLD, 13));
+        btnClear.setBorder(border);
         btnClear.setBounds(28, 82, 80, 45);
         getContentPane().add(btnClear);
 
@@ -293,21 +310,22 @@ public class Eternity extends JFrame {
                         }
                     }
                 });
-        btnBack.setFont(new Font("Tahoma", Font.BOLD, 13));
+        btnBack.setFont(new Font("SansSerif", Font.BOLD, 13));
+        btnBack.setBorder(border);
         btnBack.setBounds(120, 82, 80, 45);
         getContentPane().add(btnBack);
 
         textError = new JTextField();
         textError.setVisible(false);
         textError.setBorder(null);
-        textError.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        textError.setFont(new Font("SansSerif", Font.PLAIN, 18));
         textError.setEditable(false);
         textError.setBounds(21, 335, 515, 34);
         getContentPane().add(textError);
         textError.setColumns(10);
 
         label = new JLabel("");
-        label.setFont(new Font("Tahoma", Font.BOLD, 15));
+        label.setFont(new Font("SansSerif", Font.BOLD, 15));
         label.setHorizontalAlignment(SwingConstants.RIGHT);
         label.setForeground(new Color(192, 57, 43));
         label.setBounds(335, 11, 128, 25);

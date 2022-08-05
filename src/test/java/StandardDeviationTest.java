@@ -2,6 +2,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.text.DecimalFormat;
 
+/**
+ * Class implementing Unit Test cases
+ */
 public class StandardDeviationTest {
     DecimalFormat df = new DecimalFormat("#.#############");
     double arrSinglenumber[] = new double[1];
@@ -11,6 +14,8 @@ public class StandardDeviationTest {
     }
 
     /**
+     * Test Case: F8_UnitTestCase_1
+     * Test ID: F8_TestInputZero
      * Unit test for Function Requirement: R1
      * @throws Exception
      */
@@ -22,6 +27,8 @@ public class StandardDeviationTest {
         Assert.assertTrue(res==expectres);
     }
     /**
+     * Test Case: F8_UnitTestCase_2
+     * Test ID: F8_TestSingleNumber
      * Unit test for Function Requirement: R2
      * @throws Exception
      */
@@ -33,6 +40,8 @@ public class StandardDeviationTest {
         Assert.assertTrue(res==expectres);
     }
     /**
+     * Test Case: F8_UnitTestCase_3
+     * Test ID: F8_TestSameNumbers
      * Unit test for Function Requirement: R3
      * @throws Exception
      */
@@ -45,6 +54,8 @@ public class StandardDeviationTest {
         Assert.assertTrue(res==expectres);
     }
     /**
+     * Test Case: F8_UnitTestCase_4
+     * Test ID: F8_TestNegativeNumbers
      * Unit test for Function Requirement: R4.
      * @throws Exception
      */
@@ -61,6 +72,8 @@ public class StandardDeviationTest {
     }
 
     /**
+     * Test Case: F8_UnitTestCase_5
+     * Test ID: F8_TestPositiveNumbers
      * Unit test for Function Requirement: R5
      * @throws Exception
      */
@@ -76,6 +89,8 @@ public class StandardDeviationTest {
         Assert.assertTrue(Double.valueOf(res)==expectres);
     }
     /**
+     * Test Case: F8_UnitTestCase_6
+     * Test ID: F8_TestDecimalNumbers
      * Unit test for Function Requirement: R6
      * @throws Exception
      */
@@ -91,6 +106,8 @@ public class StandardDeviationTest {
         Assert.assertTrue(Double.valueOf(df.format(res))==expectres);
     }
     /**
+     * Test Case: F8_UnitTestCase_7
+     * Test ID: F8 TestDecimalNumbers
      * Unit test for Function Requirement: R7
      * @throws Exception
      */
@@ -102,6 +119,8 @@ public class StandardDeviationTest {
         Assert.assertTrue(res==expectres);
     }
     /**
+     * Test Case: F8_UnitTestCase_8
+     * Test ID: F8_TestPower
      * Unit test for Function Requirement: R8
      * @throws Exception
      */
@@ -114,6 +133,8 @@ public class StandardDeviationTest {
         Assert.assertTrue(res==expectres);
     }
     /**
+     * Test Case: F8_UnitTestCase_9
+     * Test ID: F8_TestInputisNumber
      * Unit test for Function Requirement: R9
      * @throws Exception
      */
@@ -127,6 +148,8 @@ public class StandardDeviationTest {
         Assert.assertTrue(res1);
     }
     /**
+     * Test Case: F8_UnitTestCase_10
+     * Test ID: F8_TestAvailability
      * Unit test for Function Requirement: R10
      * @throws Exception
      */
